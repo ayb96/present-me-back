@@ -48,7 +48,7 @@ export const updateSub = async (req, res) => {
 export const deleteSub = (req, res) => {
   mainCategoriesModel.findByIdAndDelete(req.params.id).exec((err, doc) => {
     if (err) {
-      response.status(400).send(err);
+      res.status(400).send(err);
     } else {
       res.status(200).json(doc);
     }

@@ -17,7 +17,7 @@ import singlecategoriesSchema from "./models/singleCategoriesModel.js";
 dotenv.config();
 const app = express();
 
-const connection_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.rwbgx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const connection_url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.rwbgx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 app.use(express.json());
 app.use(Cors());
 app.use("/subcategories", apiRouter);
@@ -188,6 +188,6 @@ app.get("/mainw", async function (req, res) {
 
 //end of reference schema
 
-app.listen(8009, () => {
+app.listen(process.env.PORT || 8010, () => {
   console.log(`listening on port 8008`);
 });
